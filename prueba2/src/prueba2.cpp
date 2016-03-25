@@ -39,7 +39,9 @@ int main(void) {
 
     // TODO: insert code here
     Leds_Config();
+    Inputs_Config();
     Timer1_Config();
+
 
 
 

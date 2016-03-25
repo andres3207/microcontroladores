@@ -3093,6 +3093,7 @@ Discarded input sections
  .text          0x00000000        0x0 ./src/interrupciones.o
  .data          0x00000000        0x0 ./src/interrupciones.o
  .bss           0x00000000        0x0 ./src/interrupciones.o
+ .bss.i.8752    0x00000000        0x4 ./src/interrupciones.o
  .debug_macro   0x00000000      0x892 ./src/interrupciones.o
  .debug_macro   0x00000000       0x10 ./src/interrupciones.o
  .debug_macro   0x00000000       0x22 ./src/interrupciones.o
@@ -6423,7 +6424,7 @@ END GROUP
  *(.rodata.$Flash2*)
  *(.rodata.$MFlashB512*)
 
-.text           0x1a000000      0xfd4
+.text           0x1a000000     0x10e8
  FILL mask 0xff
                 0x1a000000                __vectors_start__ = ABSOLUTE (.)
  *(.isr_vector)
@@ -6432,25 +6433,25 @@ END GROUP
                 0x1a000114                . = ALIGN (0x4)
                 0x1a000114                __section_table_start = .
                 0x1a000114                __data_section_table = .
-                0x1a000114        0x4 LONG 0x1a000fd4 LOADADDR (.data)
+                0x1a000114        0x4 LONG 0x1a0010e8 LOADADDR (.data)
                 0x1a000118        0x4 LONG 0x10000000 ADDR (.data)
                 0x1a00011c        0x4 LONG 0x0 SIZEOF (.data)
-                0x1a000120        0x4 LONG 0x1a000fd4 LOADADDR (.data_RAM2)
+                0x1a000120        0x4 LONG 0x1a0010e8 LOADADDR (.data_RAM2)
                 0x1a000124        0x4 LONG 0x10080000 ADDR (.data_RAM2)
                 0x1a000128        0x4 LONG 0x0 SIZEOF (.data_RAM2)
-                0x1a00012c        0x4 LONG 0x1a000fd4 LOADADDR (.data_RAM3)
+                0x1a00012c        0x4 LONG 0x1a0010e8 LOADADDR (.data_RAM3)
                 0x1a000130        0x4 LONG 0x20000000 ADDR (.data_RAM3)
                 0x1a000134        0x4 LONG 0x0 SIZEOF (.data_RAM3)
-                0x1a000138        0x4 LONG 0x1a000fd4 LOADADDR (.data_RAM4)
+                0x1a000138        0x4 LONG 0x1a0010e8 LOADADDR (.data_RAM4)
                 0x1a00013c        0x4 LONG 0x20008000 ADDR (.data_RAM4)
                 0x1a000140        0x4 LONG 0x0 SIZEOF (.data_RAM4)
-                0x1a000144        0x4 LONG 0x1a000fd4 LOADADDR (.data_RAM5)
+                0x1a000144        0x4 LONG 0x1a0010e8 LOADADDR (.data_RAM5)
                 0x1a000148        0x4 LONG 0x2000c000 ADDR (.data_RAM5)
                 0x1a00014c        0x4 LONG 0x0 SIZEOF (.data_RAM5)
                 0x1a000150                __data_section_table_end = .
                 0x1a000150                __bss_section_table = .
                 0x1a000150        0x4 LONG 0x10000000 ADDR (.bss)
-                0x1a000154        0x4 LONG 0x2c SIZEOF (.bss)
+                0x1a000154        0x4 LONG 0x28 SIZEOF (.bss)
                 0x1a000158        0x4 LONG 0x10080000 ADDR (.bss_RAM2)
                 0x1a00015c        0x4 LONG 0x0 SIZEOF (.bss_RAM2)
                 0x1a000160        0x4 LONG 0x20000000 ADDR (.bss_RAM3)
@@ -6585,119 +6586,127 @@ END GROUP
  .text.Chip_TIMER_ResetOnMatchEnable
                 0x1a000984       0x34 ./src/configuraciones.o
  .text.Timer1_Config
-                0x1a0009b8       0x64 ./src/configuraciones.o
+                0x1a0009b8       0x74 ./src/configuraciones.o
                 0x1a0009b8                Timer1_Config
  .text.Leds_Config
-                0x1a000a1c       0x9c ./src/configuraciones.o
-                0x1a000a1c                Leds_Config
+                0x1a000a2c       0x9c ./src/configuraciones.o
+                0x1a000a2c                Leds_Config
+ .text.Inputs_Config
+                0x1a000ac8       0x58 ./src/configuraciones.o
+                0x1a000ac8                Inputs_Config
  .text.ResetISR
-                0x1a000ab8       0xe4 ./src/cr_startup_lpc43xx.o
-                0x1a000ab8                ResetISR
+                0x1a000b20       0xe4 ./src/cr_startup_lpc43xx.o
+                0x1a000b20                ResetISR
  .text.Chip_GPIO_SetDir
-                0x1a000b9c       0x60 ./src/gpio_18xx_43xx.o
-                0x1a000b9c                Chip_GPIO_SetDir
+                0x1a000c04       0x60 ./src/gpio_18xx_43xx.o
+                0x1a000c04                Chip_GPIO_SetDir
  .text.Chip_TIMER_MatchPending
-                0x1a000bfc       0x34 ./src/interrupciones.o
+                0x1a000c64       0x34 ./src/interrupciones.o
  .text.Chip_TIMER_ClearMatch
-                0x1a000c30       0x28 ./src/interrupciones.o
+                0x1a000c98       0x28 ./src/interrupciones.o
  .text.TIMER1_IRQHandler
-                0x1a000c58       0x38 ./src/interrupciones.o
-                0x1a000c58                TIMER1_IRQHandler
+                0x1a000cc0       0x2c ./src/interrupciones.o
+                0x1a000cc0                TIMER1_IRQHandler
+ .text.Chip_GPIO_ReadPortBit
+                0x1a000cec       0x34 ./src/mis_funciones.o
  .text.Chip_GPIO_SetValue
-                0x1a000c90       0x28 ./src/mis_funciones.o
+                0x1a000d20       0x28 ./src/mis_funciones.o
  .text.Chip_GPIO_ClearValue
-                0x1a000cb8       0x28 ./src/mis_funciones.o
+                0x1a000d48       0x28 ./src/mis_funciones.o
  .text.ActivarLeds
-                0x1a000ce0       0xe0 ./src/mis_funciones.o
-                0x1a000ce0                ActivarLeds
- .text.main     0x1a000dc0       0x24 ./src/prueba2.o
-                0x1a000dc0                main
+                0x1a000d70       0xe0 ./src/mis_funciones.o
+                0x1a000d70                ActivarLeds
+ .text.LeerSwitchs
+                0x1a000e50       0x80 ./src/mis_funciones.o
+                0x1a000e50                LeerSwitchs
+ .text.main     0x1a000ed0       0x28 ./src/prueba2.o
+                0x1a000ed0                main
  .text.Chip_TIMER_GetClockIndex
-                0x1a000de4       0x50 ./src/timer_18xx_43xx.o
+                0x1a000ef8       0x50 ./src/timer_18xx_43xx.o
  .text.Chip_TIMER_Init
-                0x1a000e34       0x1c ./src/timer_18xx_43xx.o
-                0x1a000e34                Chip_TIMER_Init
+                0x1a000f48       0x1c ./src/timer_18xx_43xx.o
+                0x1a000f48                Chip_TIMER_Init
  .text.Chip_TIMER_Reset
-                0x1a000e50       0x3c ./src/timer_18xx_43xx.o
-                0x1a000e50                Chip_TIMER_Reset
+                0x1a000f64       0x3c ./src/timer_18xx_43xx.o
+                0x1a000f64                Chip_TIMER_Reset
  .text.__libc_init_array
-                0x1a000e8c       0x50 /usr/local/lpcxpresso_8.0.0_526/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-init.o)
-                0x1a000e8c                __libc_init_array
- .text          0x1a000edc       0x5c /usr/local/lpcxpresso_8.0.0_526/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp/crtbegin.o
+                0x1a000fa0       0x50 /usr/local/lpcxpresso_8.0.0_526/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-init.o)
+                0x1a000fa0                __libc_init_array
+ .text          0x1a000ff0       0x5c /usr/local/lpcxpresso_8.0.0_526/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp/crtbegin.o
  *(.rodata .rodata.* .constdata .constdata.*)
  .rodata.periph_to_base
-                0x1a000f38       0x6c ./src/clock_18xx_43xx.o
- .rodata        0x1a000fa4        0xa ./src/clock_18xx_43xx.o
- *fill*         0x1a000fae        0x2 
+                0x1a00104c       0x6c ./src/clock_18xx_43xx.o
+ .rodata        0x1a0010b8        0xa ./src/clock_18xx_43xx.o
+ *fill*         0x1a0010c2        0x2 
  .rodata.ExtRateIn
-                0x1a000fb0        0x4 ./src/sysinit.o
-                0x1a000fb0                ExtRateIn
+                0x1a0010c4        0x4 ./src/sysinit.o
+                0x1a0010c4                ExtRateIn
  .rodata.OscRateIn
-                0x1a000fb4        0x4 ./src/sysinit.o
-                0x1a000fb4                OscRateIn
-                0x1a000fb8                . = ALIGN (0x4)
-                0x1a000fb8                . = ALIGN (0x4)
+                0x1a0010c8        0x4 ./src/sysinit.o
+                0x1a0010c8                OscRateIn
+                0x1a0010cc                . = ALIGN (0x4)
+                0x1a0010cc                . = ALIGN (0x4)
  *(.init)
- .init          0x1a000fb8        0x4 /usr/local/lpcxpresso_8.0.0_526/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp/crti.o
-                0x1a000fb8                _init
- .init          0x1a000fbc        0x8 /usr/local/lpcxpresso_8.0.0_526/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp/crtn.o
-                0x1a000fc4                . = ALIGN (0x4)
-                0x1a000fc4                __preinit_array_start = .
+ .init          0x1a0010cc        0x4 /usr/local/lpcxpresso_8.0.0_526/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp/crti.o
+                0x1a0010cc                _init
+ .init          0x1a0010d0        0x8 /usr/local/lpcxpresso_8.0.0_526/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp/crtn.o
+                0x1a0010d8                . = ALIGN (0x4)
+                0x1a0010d8                __preinit_array_start = .
  *(.preinit_array)
-                0x1a000fc4                __preinit_array_end = .
-                0x1a000fc4                . = ALIGN (0x4)
-                0x1a000fc4                __init_array_start = .
+                0x1a0010d8                __preinit_array_end = .
+                0x1a0010d8                . = ALIGN (0x4)
+                0x1a0010d8                __init_array_start = .
  *(SORT(.init_array.*))
  *(.init_array)
- .init_array    0x1a000fc4        0x4 /usr/local/lpcxpresso_8.0.0_526/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp/crtbegin.o
-                0x1a000fc8                __init_array_end = .
+ .init_array    0x1a0010d8        0x4 /usr/local/lpcxpresso_8.0.0_526/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp/crtbegin.o
+                0x1a0010dc                __init_array_end = .
  *(.fini)
- .fini          0x1a000fc8        0x4 /usr/local/lpcxpresso_8.0.0_526/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp/crti.o
-                0x1a000fc8                _fini
- .fini          0x1a000fcc        0x8 /usr/local/lpcxpresso_8.0.0_526/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp/crtn.o
-                0x1a000fd4                . = ALIGN (0x4)
+ .fini          0x1a0010dc        0x4 /usr/local/lpcxpresso_8.0.0_526/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp/crti.o
+                0x1a0010dc                _fini
+ .fini          0x1a0010e0        0x8 /usr/local/lpcxpresso_8.0.0_526/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp/crtn.o
+                0x1a0010e8                . = ALIGN (0x4)
  *crtbegin.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o) .ctors)
  *(SORT(.ctors.*))
  *crtend.o(.ctors)
-                0x1a000fd4                . = ALIGN (0x4)
+                0x1a0010e8                . = ALIGN (0x4)
  *crtbegin.o(.dtors)
  *(EXCLUDE_FILE(*crtend.o) .dtors)
  *(SORT(.dtors.*))
  *crtend.o(.dtors)
-                0x1a000fd4                . = ALIGN (0x4)
+                0x1a0010e8                . = ALIGN (0x4)
 
-.glue_7         0x1a000fd4        0x0
+.glue_7         0x1a0010e8        0x0
  .glue_7        0x00000000        0x0 linker stubs
 
-.glue_7t        0x1a000fd4        0x0
+.glue_7t        0x1a0010e8        0x0
  .glue_7t       0x00000000        0x0 linker stubs
 
-.vfp11_veneer   0x1a000fd4        0x0
+.vfp11_veneer   0x1a0010e8        0x0
  .vfp11_veneer  0x00000000        0x0 linker stubs
 
-.v4_bx          0x1a000fd4        0x0
+.v4_bx          0x1a0010e8        0x0
  .v4_bx         0x00000000        0x0 linker stubs
 
-.iplt           0x1a000fd4        0x0
+.iplt           0x1a0010e8        0x0
  .iplt          0x00000000        0x0 ./src/adc_18xx_43xx.o
 
-.rel.dyn        0x1a000fd4        0x0
+.rel.dyn        0x1a0010e8        0x0
  .rel.iplt      0x00000000        0x0 ./src/adc_18xx_43xx.o
 
-.eh_frame       0x1a000fd4        0x0
- .eh_frame      0x1a000fd4        0x0 /usr/local/lpcxpresso_8.0.0_526/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp/crtbegin.o
+.eh_frame       0x1a0010e8        0x0
+ .eh_frame      0x1a0010e8        0x0 /usr/local/lpcxpresso_8.0.0_526/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp/crtbegin.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x1a000fd4                __exidx_start = .
+                0x1a0010e8                __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x1a000fd4                __exidx_end = .
-                0x1a000fd4                _etext = .
+                0x1a0010e8                __exidx_end = .
+                0x1a0010e8                _etext = .
 
-.data_RAM2      0x10080000        0x0 load address 0x1a000fd4
+.data_RAM2      0x10080000        0x0 load address 0x1a0010e8
  FILL mask 0xff
                 0x10080000                PROVIDE (__start_data_RAM2, .)
  *(.ramfunc.$RAM2)
@@ -6707,7 +6716,7 @@ END GROUP
                 0x10080000                . = ALIGN (0x4)
                 0x10080000                PROVIDE (__end_data_RAM2, .)
 
-.data_RAM3      0x20000000        0x0 load address 0x1a000fd4
+.data_RAM3      0x20000000        0x0 load address 0x1a0010e8
  FILL mask 0xff
                 0x20000000                PROVIDE (__start_data_RAM3, .)
  *(.ramfunc.$RAM3)
@@ -6717,7 +6726,7 @@ END GROUP
                 0x20000000                . = ALIGN (0x4)
                 0x20000000                PROVIDE (__end_data_RAM3, .)
 
-.data_RAM4      0x20008000        0x0 load address 0x1a000fd4
+.data_RAM4      0x20008000        0x0 load address 0x1a0010e8
  FILL mask 0xff
                 0x20008000                PROVIDE (__start_data_RAM4, .)
  *(.ramfunc.$RAM4)
@@ -6727,7 +6736,7 @@ END GROUP
                 0x20008000                . = ALIGN (0x4)
                 0x20008000                PROVIDE (__end_data_RAM4, .)
 
-.data_RAM5      0x2000c000        0x0 load address 0x1a000fd4
+.data_RAM5      0x2000c000        0x0 load address 0x1a0010e8
  FILL mask 0xff
                 0x2000c000                PROVIDE (__start_data_RAM5, .)
  *(.ramfunc.$RAM5)
@@ -6743,7 +6752,7 @@ END GROUP
                 0x10000000                . = ALIGN (0x4)
                 0x10000000                _end_uninit_RESERVED = .
 
-.data           0x10000000        0x0 load address 0x1a000fd4
+.data           0x10000000        0x0 load address 0x1a0010e8
  FILL mask 0xff
                 0x10000000                _data = .
  *(vtable)
@@ -6752,10 +6761,10 @@ END GROUP
                 0x10000000                . = ALIGN (0x4)
                 0x10000000                _edata = .
 
-.igot.plt       0x10000000        0x0 load address 0x1a000fd4
+.igot.plt       0x10000000        0x0 load address 0x1a0010e8
  .igot.plt      0x00000000        0x0 ./src/adc_18xx_43xx.o
 
-.jcr            0x10000000        0x0 load address 0x1a000fd4
+.jcr            0x10000000        0x0 load address 0x1a0010e8
  .jcr           0x10000000        0x0 /usr/local/lpcxpresso_8.0.0_526/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp/crtbegin.o
 
 .bss_RAM2       0x10080000        0x0
@@ -6786,19 +6795,18 @@ END GROUP
                 0x2000c000                . = ALIGN ((. != 0x0)?0x4:0x1)
                 0x2000c000                PROVIDE (__end_bss_RAM5, .)
 
-.bss            0x10000000       0x2c
+.bss            0x10000000       0x28
                 0x10000000                _bss = .
  *(.bss*)
  .bss.audio_usb_pll_freq
                 0x10000000        0x8 ./src/clock_18xx_43xx.o
- .bss.i.8752    0x10000008        0x4 ./src/interrupciones.o
  .bss._ZZ4mainE1i
-                0x1000000c        0x4 ./src/prueba2.o
- .bss           0x10000010       0x1c /usr/local/lpcxpresso_8.0.0_526/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp/crtbegin.o
+                0x10000008        0x4 ./src/prueba2.o
+ .bss           0x1000000c       0x1c /usr/local/lpcxpresso_8.0.0_526/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp/crtbegin.o
  *(COMMON)
-                0x1000002c                . = ALIGN (0x4)
-                0x1000002c                _ebss = .
-                0x1000002c                PROVIDE (end, .)
+                0x10000028                . = ALIGN (0x4)
+                0x10000028                _ebss = .
+                0x10000028                PROVIDE (end, .)
 
 .noinit_RAM2    0x10080000        0x0
  *(.noinit.$RAM2*)
@@ -6820,72 +6828,72 @@ END GROUP
  *(.noinit.$RamAHB_ETB16*)
                 0x2000c000                . = ALIGN (0x4)
 
-.noinit         0x1000002c        0x0
-                0x1000002c                _noinit = .
+.noinit         0x10000028        0x0
+                0x10000028                _noinit = .
  *(.noinit*)
-                0x1000002c                . = ALIGN (0x4)
-                0x1000002c                _end_noinit = .
-                0x1000002c                PROVIDE (_pvHeapStart, DEFINED (__user_heap_base)?__user_heap_base:.)
+                0x10000028                . = ALIGN (0x4)
+                0x10000028                _end_noinit = .
+                0x10000028                PROVIDE (_pvHeapStart, DEFINED (__user_heap_base)?__user_heap_base:.)
                 0x10008000                PROVIDE (_vStackTop, DEFINED (__user_stack_top)?__user_stack_top:(__top_RamLoc32 - 0x0))
-                0x53ff6b2e                PROVIDE (__valid_user_code_checksum, (0x0 - ((((((_vStackTop + (ResetISR + 0x1)) + (NMI_Handler + 0x1)) + (HardFault_Handler + 0x1)) + (DEFINED (MemManage_Handler)?MemManage_Handler:0x0 + 0x1)) + (DEFINED (BusFault_Handler)?BusFault_Handler:0x0 + 0x1)) + (DEFINED (UsageFault_Handler)?UsageFault_Handler:0x0 + 0x1))))
+                0x53ff6ac6                PROVIDE (__valid_user_code_checksum, (0x0 - ((((((_vStackTop + (ResetISR + 0x1)) + (NMI_Handler + 0x1)) + (HardFault_Handler + 0x1)) + (DEFINED (MemManage_Handler)?MemManage_Handler:0x0 + 0x1)) + (DEFINED (BusFault_Handler)?BusFault_Handler:0x0 + 0x1)) + (DEFINED (UsageFault_Handler)?UsageFault_Handler:0x0 + 0x1))))
 OUTPUT(prueba2.axf elf32-littlearm)
 
-.debug_info     0x00000000     0x3b34
+.debug_info     0x00000000     0x3bc2
  .debug_info    0x00000000     0x158f ./src/clock_18xx_43xx.o
- .debug_info    0x0000158f      0xd73 ./src/configuraciones.o
- .debug_info    0x00002302      0x2c7 ./src/cr_startup_lpc43xx.o
- .debug_info    0x000025c9       0x3f ./src/crp.o
- .debug_info    0x00002608      0x44c ./src/gpio_18xx_43xx.o
- .debug_info    0x00002a54      0x259 ./src/interrupciones.o
- .debug_info    0x00002cad      0x278 ./src/mis_funciones.o
- .debug_info    0x00002f25      0x131 ./src/prueba2.o
- .debug_info    0x00003056      0x5d8 ./src/sysinit.o
- .debug_info    0x0000362e      0x506 ./src/timer_18xx_43xx.o
+ .debug_info    0x0000158f      0xd84 ./src/configuraciones.o
+ .debug_info    0x00002313      0x2c7 ./src/cr_startup_lpc43xx.o
+ .debug_info    0x000025da       0x3f ./src/crp.o
+ .debug_info    0x00002619      0x44c ./src/gpio_18xx_43xx.o
+ .debug_info    0x00002a65      0x26a ./src/interrupciones.o
+ .debug_info    0x00002ccf      0x2e4 ./src/mis_funciones.o
+ .debug_info    0x00002fb3      0x131 ./src/prueba2.o
+ .debug_info    0x000030e4      0x5d8 ./src/sysinit.o
+ .debug_info    0x000036bc      0x506 ./src/timer_18xx_43xx.o
 
-.debug_abbrev   0x00000000      0xbe8
+.debug_abbrev   0x00000000      0xc4f
  .debug_abbrev  0x00000000      0x2c0 ./src/clock_18xx_43xx.o
  .debug_abbrev  0x000002c0      0x20f ./src/configuraciones.o
  .debug_abbrev  0x000004cf       0xf0 ./src/cr_startup_lpc43xx.o
  .debug_abbrev  0x000005bf       0x36 ./src/crp.o
  .debug_abbrev  0x000005f5      0x111 ./src/gpio_18xx_43xx.o
- .debug_abbrev  0x00000706      0x128 ./src/interrupciones.o
- .debug_abbrev  0x0000082e       0xf7 ./src/mis_funciones.o
- .debug_abbrev  0x00000925       0x9c ./src/prueba2.o
- .debug_abbrev  0x000009c1       0xd9 ./src/sysinit.o
- .debug_abbrev  0x00000a9a      0x14e ./src/timer_18xx_43xx.o
+ .debug_abbrev  0x00000706      0x13b ./src/interrupciones.o
+ .debug_abbrev  0x00000841      0x14b ./src/mis_funciones.o
+ .debug_abbrev  0x0000098c       0x9c ./src/prueba2.o
+ .debug_abbrev  0x00000a28       0xd9 ./src/sysinit.o
+ .debug_abbrev  0x00000b01      0x14e ./src/timer_18xx_43xx.o
 
-.debug_aranges  0x00000000      0x398
+.debug_aranges  0x00000000      0x3b0
  .debug_aranges
                 0x00000000      0x138 ./src/clock_18xx_43xx.o
  .debug_aranges
-                0x00000138       0x80 ./src/configuraciones.o
+                0x00000138       0x88 ./src/configuraciones.o
  .debug_aranges
-                0x000001b8       0x80 ./src/cr_startup_lpc43xx.o
+                0x000001c0       0x80 ./src/cr_startup_lpc43xx.o
  .debug_aranges
-                0x00000238       0x18 ./src/crp.o
+                0x00000240       0x18 ./src/crp.o
  .debug_aranges
-                0x00000250       0x68 ./src/gpio_18xx_43xx.o
+                0x00000258       0x68 ./src/gpio_18xx_43xx.o
  .debug_aranges
-                0x000002b8       0x30 ./src/interrupciones.o
+                0x000002c0       0x30 ./src/interrupciones.o
  .debug_aranges
-                0x000002e8       0x30 ./src/mis_funciones.o
+                0x000002f0       0x40 ./src/mis_funciones.o
  .debug_aranges
-                0x00000318       0x20 ./src/prueba2.o
+                0x00000330       0x20 ./src/prueba2.o
  .debug_aranges
-                0x00000338       0x20 ./src/sysinit.o
+                0x00000350       0x20 ./src/sysinit.o
  .debug_aranges
-                0x00000358       0x40 ./src/timer_18xx_43xx.o
+                0x00000370       0x40 ./src/timer_18xx_43xx.o
 
-.debug_ranges   0x00000000      0x2f0
+.debug_ranges   0x00000000      0x308
  .debug_ranges  0x00000000      0x128 ./src/clock_18xx_43xx.o
- .debug_ranges  0x00000128       0x70 ./src/configuraciones.o
- .debug_ranges  0x00000198       0x70 ./src/cr_startup_lpc43xx.o
- .debug_ranges  0x00000208       0x58 ./src/gpio_18xx_43xx.o
- .debug_ranges  0x00000260       0x20 ./src/interrupciones.o
- .debug_ranges  0x00000280       0x20 ./src/mis_funciones.o
- .debug_ranges  0x000002a0       0x10 ./src/prueba2.o
- .debug_ranges  0x000002b0       0x10 ./src/sysinit.o
- .debug_ranges  0x000002c0       0x30 ./src/timer_18xx_43xx.o
+ .debug_ranges  0x00000128       0x78 ./src/configuraciones.o
+ .debug_ranges  0x000001a0       0x70 ./src/cr_startup_lpc43xx.o
+ .debug_ranges  0x00000210       0x58 ./src/gpio_18xx_43xx.o
+ .debug_ranges  0x00000268       0x20 ./src/interrupciones.o
+ .debug_ranges  0x00000288       0x30 ./src/mis_funciones.o
+ .debug_ranges  0x000002b8       0x10 ./src/prueba2.o
+ .debug_ranges  0x000002c8       0x10 ./src/sysinit.o
+ .debug_ranges  0x000002d8       0x30 ./src/timer_18xx_43xx.o
 
 .debug_macro    0x00000000     0x2601
  .debug_macro   0x00000000      0x2f8 ./src/clock_18xx_43xx.o
@@ -6903,38 +6911,38 @@ OUTPUT(prueba2.axf elf32-littlearm)
  .debug_macro   0x0000201d      0x2f2 ./src/sysinit.o
  .debug_macro   0x0000230f      0x2f2 ./src/timer_18xx_43xx.o
 
-.debug_line     0x00000000     0x3d62
+.debug_line     0x00000000     0x3da4
  .debug_line    0x00000000      0xaf5 ./src/clock_18xx_43xx.o
- .debug_line    0x00000af5      0x7a2 ./src/configuraciones.o
- .debug_line    0x00001297      0x104 ./src/cr_startup_lpc43xx.o
- .debug_line    0x0000139b       0x81 ./src/crp.o
- .debug_line    0x0000141c      0x74d ./src/gpio_18xx_43xx.o
- .debug_line    0x00001b69      0x6c0 ./src/interrupciones.o
- .debug_line    0x00002229      0x6cb ./src/mis_funciones.o
- .debug_line    0x000028f4      0x6e2 ./src/prueba2.o
- .debug_line    0x00002fd6      0x695 ./src/sysinit.o
- .debug_line    0x0000366b      0x6f7 ./src/timer_18xx_43xx.o
+ .debug_line    0x00000af5      0x7ba ./src/configuraciones.o
+ .debug_line    0x000012af      0x104 ./src/cr_startup_lpc43xx.o
+ .debug_line    0x000013b3       0x81 ./src/crp.o
+ .debug_line    0x00001434      0x74d ./src/gpio_18xx_43xx.o
+ .debug_line    0x00001b81      0x6bf ./src/interrupciones.o
+ .debug_line    0x00002240      0x6f5 ./src/mis_funciones.o
+ .debug_line    0x00002935      0x6e3 ./src/prueba2.o
+ .debug_line    0x00003018      0x695 ./src/sysinit.o
+ .debug_line    0x000036ad      0x6f7 ./src/timer_18xx_43xx.o
 
-.debug_str      0x00000000    0x16838
+.debug_str      0x00000000    0x1686f
  .debug_str     0x00000000    0x155c5 ./src/clock_18xx_43xx.o
                               0x15819 (size before relaxing)
- .debug_str     0x000155c5      0x5af ./src/configuraciones.o
-                              0x151dc (size before relaxing)
- .debug_str     0x00015b74      0x43f ./src/cr_startup_lpc43xx.o
+ .debug_str     0x000155c5      0x5c4 ./src/configuraciones.o
+                              0x151f1 (size before relaxing)
+ .debug_str     0x00015b89      0x43f ./src/cr_startup_lpc43xx.o
                                0x279f (size before relaxing)
- .debug_str     0x00015fb3       0xe9 ./src/crp.o
+ .debug_str     0x00015fc8       0xe9 ./src/crp.o
                                0x25e9 (size before relaxing)
- .debug_str     0x0001609c      0x10e ./src/gpio_18xx_43xx.o
+ .debug_str     0x000160b1      0x10e ./src/gpio_18xx_43xx.o
                               0x14698 (size before relaxing)
- .debug_str     0x000161aa       0x64 ./src/interrupciones.o
-                              0x145e4 (size before relaxing)
- .debug_str     0x0001620e       0x30 ./src/mis_funciones.o
-                              0x145d6 (size before relaxing)
- .debug_str     0x0001623e      0x4ad ./src/prueba2.o
+ .debug_str     0x000161bf       0x70 ./src/interrupciones.o
+                              0x145f0 (size before relaxing)
+ .debug_str     0x0001622f       0x46 ./src/mis_funciones.o
+                              0x145fd (size before relaxing)
+ .debug_str     0x00016275      0x4ad ./src/prueba2.o
                               0x14a5d (size before relaxing)
- .debug_str     0x000166eb       0x1c ./src/sysinit.o
+ .debug_str     0x00016722       0x1c ./src/sysinit.o
                               0x14fa2 (size before relaxing)
- .debug_str     0x00016707      0x131 ./src/timer_18xx_43xx.o
+ .debug_str     0x0001673e      0x131 ./src/timer_18xx_43xx.o
                               0x14a91 (size before relaxing)
 
 .comment        0x00000000       0x70
@@ -6981,14 +6989,14 @@ OUTPUT(prueba2.axf elf32-littlearm)
  .ARM.attributes
                 0x0000029c       0x32 /usr/local/lpcxpresso_8.0.0_526/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.9.3/armv7e-m/softfp/crtbegin.o
 
-.debug_frame    0x00000000      0xcd8
+.debug_frame    0x00000000      0xd40
  .debug_frame   0x00000000      0x568 ./src/clock_18xx_43xx.o
- .debug_frame   0x00000568      0x208 ./src/configuraciones.o
- .debug_frame   0x00000770      0x170 ./src/cr_startup_lpc43xx.o
- .debug_frame   0x000008e0      0x198 ./src/gpio_18xx_43xx.o
- .debug_frame   0x00000a78       0x7c ./src/interrupciones.o
- .debug_frame   0x00000af4       0x84 ./src/mis_funciones.o
- .debug_frame   0x00000b78       0x30 ./src/prueba2.o
- .debug_frame   0x00000ba8       0x34 ./src/sysinit.o
- .debug_frame   0x00000bdc       0xd0 ./src/timer_18xx_43xx.o
- .debug_frame   0x00000cac       0x2c /usr/local/lpcxpresso_8.0.0_526/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-init.o)
+ .debug_frame   0x00000568      0x224 ./src/configuraciones.o
+ .debug_frame   0x0000078c      0x170 ./src/cr_startup_lpc43xx.o
+ .debug_frame   0x000008fc      0x198 ./src/gpio_18xx_43xx.o
+ .debug_frame   0x00000a94       0x7c ./src/interrupciones.o
+ .debug_frame   0x00000b10       0xd0 ./src/mis_funciones.o
+ .debug_frame   0x00000be0       0x30 ./src/prueba2.o
+ .debug_frame   0x00000c10       0x34 ./src/sysinit.o
+ .debug_frame   0x00000c44       0xd0 ./src/timer_18xx_43xx.o
+ .debug_frame   0x00000d14       0x2c /usr/local/lpcxpresso_8.0.0_526/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/armv7e-m/softfp/libc.a(lib_a-init.o)

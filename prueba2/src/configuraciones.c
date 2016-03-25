@@ -8,7 +8,7 @@
 #include "chip.h"
 
 void Timer1_Config(void){
-	#define TICKRATE_HZ 1
+	#define TICKRATE_HZ 96000000
     uint32_t timerFreq;
     /* Enable timer 1 clock and reset it */
     Chip_TIMER_Init(LPC_TIMER1);
@@ -46,4 +46,15 @@ void Leds_Config(void){
 	       Chip_GPIO_ClearValue(LPC_GPIO_PORT, 5,(1<<0)|(1<<1)|(1<<2));
 	       Chip_GPIO_ClearValue(LPC_GPIO_PORT, 0,(1<<14));
 	       Chip_GPIO_ClearValue(LPC_GPIO_PORT, 1,(1<<11)|(1<<12));
+}
+
+void Inputs_Config(void){
+	/* Switches */
+	   Chip_SCU_PinMux(1,0,MD_PUP|MD_EZI|MD_ZI,FUNC0); /* GPIO0[4], SW1 */
+	   Chip_SCU_PinMux(1,1,MD_PUP|MD_EZI|MD_ZI,FUNC0); /* GPIO0[8], SW2 */
+	   Chip_SCU_PinMux(1,2,MD_PUP|MD_EZI|MD_ZI,FUNC0); /* GPIO0[9], SW3 */
+	   Chip_SCU_PinMux(1,6,MD_PUP|MD_EZI|MD_ZI,FUNC0); /* GPIO1[9], SW4 */
+
+	   Chip_GPIO_SetDir(LPC_GPIO_PORT, 0,(1<<4)|(1<<8)|(1<<9),0);
+	   Chip_GPIO_SetDir(LPC_GPIO_PORT, 1,(1<<9),0);
 }

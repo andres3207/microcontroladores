@@ -11,6 +11,7 @@
 extern "C"{
 void Timer1_Config(void);
 void Leds_Config(void);
+void Inputs_Config(void);
 }
 
 

@@ -12,7 +12,8 @@ void TIMER1_IRQHandler(void){
 	static int i=0;
 	if (Chip_TIMER_MatchPending(LPC_TIMER1, 1)) {
 			Chip_TIMER_ClearMatch(LPC_TIMER1, 1);
-			ActivarLeds(i);
+			ActivarLeds(LeerSwitchs());
+			//ActivarLeds(i);
+			//i++;
 		}
-	i++;
 }

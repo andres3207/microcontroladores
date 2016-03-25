@@ -40,5 +40,15 @@ void ActivarLeds(int valor){
 
 }
 
+int LeerSwitchs(void){
+	int tmp=0;
+	tmp|=(!Chip_GPIO_ReadPortBit(LPC_GPIO_PORT, 0, 4)<<0);
+	tmp|=(!Chip_GPIO_ReadPortBit(LPC_GPIO_PORT, 0, 8)<<1);
+	tmp|=(!Chip_GPIO_ReadPortBit(LPC_GPIO_PORT, 0, 9)<<2);
+	tmp|=(!Chip_GPIO_ReadPortBit(LPC_GPIO_PORT, 1, 9)<<3);
+	//tmp=Chip_GPIO_GetPortValue(LPC_GPIO_PORT, 0);
+	return tmp;
+}
+
 
 
